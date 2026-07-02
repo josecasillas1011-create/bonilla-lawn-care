@@ -103,10 +103,17 @@ section { padding: 3.5rem 1.25rem; }
 .hero__content { position: relative; z-index: 2; max-width: 620px; margin: 0 auto; }
 
 /* Flyer photo crops */
-.hero__truck, .hero__worker {
+.hero__truck, .hero__worker, .hero__signs {
   display: none;   /* mobile: shown as strip below via media query */
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* Lawn ground band — flyer grass along the hero's bottom edge */
+.hero__lawn {
+  height: 64px;
+  background: url('assets/photos/grass.jpg') repeat-x center / auto 100%;
+  box-shadow: inset 0 18px 22px -12px var(--green-dark);
 }
 
 /* Brush-slash headline block (flyer's black slash) */
@@ -149,25 +156,39 @@ section { padding: 3.5rem 1.25rem; }
 .hero__text-link a { color: var(--green-bright); font-weight: 700; }
 .hero__trust { margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; }
 
-/* Mobile: photos as a strip below the CTAs */
+/* Mobile: signs top-left like the flyer; truck + worker strip below CTAs */
 @media (max-width: 899px) {
+  .hero__stage { padding-bottom: 0; }
+  .hero__signs {
+    display: block;
+    position: absolute;
+    top: -1rem;
+    left: 0.75rem;
+    width: 96px;
+    rotate: -2deg;
+    z-index: 1;
+  }
   .hero__truck, .hero__worker {
     display: inline-block;
     width: 44%;
     max-width: 220px;
     vertical-align: bottom;
-    margin: 2rem 0.4rem 0;
+    margin: 2rem 0.4rem -14px;   /* bottom edges sink into the lawn band */
+    position: relative;
+    z-index: 1;
   }
 }
 
-/* Desktop: flyer layout — truck left, worker right, text center */
+/* Desktop: flyer layout — signs + truck left, worker right, text center */
 @media (min-width: 900px) {
-  .hero__stage { padding-bottom: 4.5rem; }
-  .hero__truck, .hero__worker { display: block; position: absolute; z-index: 1; }
-  .hero__truck  { left: 0;  bottom: 2.5rem; width: 300px; rotate: -2deg; }
-  .hero__worker { right: 0; top: 0.5rem;    width: 230px; rotate: 2deg; }
+  .hero__stage { padding-bottom: 3rem; }
+  .hero__truck, .hero__worker, .hero__signs { display: block; position: absolute; z-index: 1; }
+  .hero__signs  { left: 2.5rem; top: -0.75rem; width: 150px; rotate: -2deg; }
+  .hero__truck  { left: 0;  bottom: -46px; width: 300px; rotate: -2deg; }
+  .hero__worker { right: 0; bottom: -40px; width: 230px; rotate: 2deg; }
 }
 @media (min-width: 1100px) {
+  .hero__signs  { width: 170px; left: 3.5rem; }
   .hero__truck  { width: 350px; }
   .hero__worker { width: 260px; }
 }
