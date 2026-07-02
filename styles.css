@@ -1,0 +1,209 @@
+/* ============================================================
+   Bonilla Lawn Care — palette sampled from assets/flyer.jpg
+   Built from axis-landing-starter. Mobile-first.
+   ============================================================ */
+
+:root {
+  --green-dark:   #0D2A07;  /* flyer wordmark / panels */
+  --green-bright: #84B208;  /* flyer lime green — CTAs, accents */
+  --green-leaf:   #5C8F06;  /* darker leaf half */
+  --ink:          #0A0A0A;  /* flyer contact bar */
+  --off-white:    #F6F5F0;
+  --white:        #FFFFFF;
+
+  --font-display: 'Anton', sans-serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--off-white);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+section { padding: 4rem 1.25rem; }
+
+/* ---------- Logo (HTML/CSS recreation of the flyer wordmark) ---------- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--white);
+}
+.logo__leaf { width: 34px; height: 34px; flex-shrink: 0; }
+.logo__text { display: flex; flex-direction: column; line-height: 1; }
+.logo__name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+}
+.logo__sub {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  margin-top: 0.2rem;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding: 0.15rem 0;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  min-height: 48px;
+  padding: 0.9rem 1.6rem;
+  border-radius: 8px;
+  font-weight: 800;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+}
+/* Flyer pattern: dark text on lime green (like the FREE ESTIMATES badge) */
+.btn--primary   { background: var(--green-bright); color: var(--green-dark); }
+.btn--secondary { background: transparent; color: var(--white); border: 2px solid var(--white); }
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(ellipse at 20% -10%, rgba(132, 178, 8, 0.22), transparent 55%),
+    var(--green-dark);
+  color: var(--white);
+  padding: 1.25rem 1.25rem 4.5rem;
+}
+.hero__content { max-width: 760px; margin: 3.25rem auto 0; text-align: center; }
+.hero__h1 { font-size: clamp(2.6rem, 9vw, 5rem); }
+.hero__h1-accent { color: var(--green-bright); display: block; }
+.hero__sub { margin: 1.1rem auto 1.75rem; font-size: 1.1rem; opacity: 0.92; max-width: 560px; }
+.hero__ctas { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
+.hero__text-link { margin-top: 0.9rem; font-size: 0.95rem; opacity: 0.85; }
+.hero__text-link a { color: var(--green-bright); font-weight: 700; }
+.hero__trust { margin-top: 1.1rem; font-size: 0.9rem; opacity: 0.8; }
+
+/* ---------- Services ---------- */
+.services { text-align: center; max-width: 1100px; margin: 0 auto; }
+.services h2 { font-size: 2.1rem; margin-bottom: 2rem; color: var(--green-dark); }
+.services__grid { display: grid; gap: 1.25rem; }
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(13, 42, 7, 0.08);
+}
+.card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--green-dark);
+  color: var(--green-bright);
+  display: grid;
+  place-items: center;
+}
+.card__icon svg { width: 34px; height: 34px; }
+.card h3 { margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--green-dark); }
+
+/* ---------- How it works ---------- */
+.how {
+  background: var(--white);
+  text-align: center;
+}
+.how h2 { font-size: 2.1rem; margin-bottom: 2rem; color: var(--green-dark); }
+.how__steps {
+  list-style: none;
+  display: grid;
+  gap: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.how__num {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--green-bright);
+  color: var(--green-dark);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+.how__step h3 { font-size: 1.2rem; color: var(--green-dark); }
+
+/* ---------- Quote form ---------- */
+.quote { text-align: center; max-width: 640px; margin: 0 auto; }
+.quote h2 { font-size: 2.1rem; margin-bottom: 0.75rem; color: var(--green-dark); }
+.quote__sub { margin-bottom: 1.75rem; }
+.quote__sub a { color: var(--green-leaf); font-weight: 700; }
+#lead-form { display: grid; gap: 0.85rem; max-width: 480px; margin: 0 auto; text-align: left; }
+#lead-form input, #lead-form select, #lead-form textarea {
+  padding: 0.85rem 1rem;
+  border: 1px solid #c9c9c4;
+  border-radius: 8px;
+  font: inherit;
+  width: 100%;
+  background: var(--white);
+}
+#lead-form textarea { min-height: 100px; resize: vertical; }
+.hp { position: absolute; left: -9999px; }
+#form-success { margin-top: 1.25rem; font-weight: 700; color: var(--green-leaf); font-size: 1.1rem; }
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--ink);
+  color: var(--white);
+  text-align: center;
+  padding: 3rem 1.25rem 5rem;
+}
+.logo--footer { margin-bottom: 1.25rem; }
+.footer p { margin: 0.4rem 0; font-size: 0.95rem; }
+.footer a { color: var(--green-bright); text-decoration: none; font-weight: 700; }
+
+/* ---------- Sticky mobile call bar ---------- */
+.call-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--green-bright);
+  color: var(--green-dark);
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 0.95rem;
+  text-decoration: none;
+  transform: translateY(110%);
+  transition: transform 0.3s ease;
+  z-index: 50;
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.25);
+}
+.call-bar.is-visible { transform: translateY(0); }
+
+/* ---------- Desktop ---------- */
+@media (min-width: 768px) {
+  .hero__ctas { flex-direction: row; justify-content: center; }
+  .services__grid { grid-template-columns: repeat(3, 1fr); }
+  .how__steps { grid-template-columns: repeat(3, 1fr); }
+  .call-bar { display: none; }
+  .footer { padding-bottom: 3rem; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  [data-animate] { opacity: 1 !important; transform: none !important; }
+}
