@@ -1,17 +1,19 @@
 /* ============================================================
-   Bonilla Lawn Care — palette sampled from assets/flyer.jpg
-   Built from axis-landing-starter. Mobile-first.
+   Bonilla Lawn Care — flyer-faithful design
+   Palette sampled from assets/flyer.jpg. Mobile-first.
    ============================================================ */
 
 :root {
   --green-dark:   #0D2A07;  /* flyer wordmark / panels */
-  --green-bright: #84B208;  /* flyer lime green — CTAs, accents */
+  --green-deep:   #123A0C;  /* slightly lifted panel green */
+  --green-bright: #84B208;  /* flyer lime — CTAs, accents */
   --green-leaf:   #5C8F06;  /* darker leaf half */
   --ink:          #0A0A0A;  /* flyer contact bar */
   --off-white:    #F6F5F0;
   --white:        #FFFFFF;
 
   --font-display: 'Anton', sans-serif;
+  --font-brush:   'Permanent Marker', cursive;
   --font-body:    'Inter', sans-serif;
 }
 
@@ -34,31 +36,33 @@ h1, h2, h3 {
   font-weight: 400;
 }
 
-section { padding: 4rem 1.25rem; }
+section { padding: 3.5rem 1.25rem; }
 
-/* ---------- Logo (HTML/CSS recreation of the flyer wordmark) ---------- */
+/* ---------- Logo (flyer wordmark: BONILLA + leaf, LAWN CARE between rules) ---------- */
 .logo {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   text-decoration: none;
   color: var(--white);
 }
-.logo__leaf { width: 34px; height: 34px; flex-shrink: 0; }
-.logo__text { display: flex; flex-direction: column; line-height: 1; }
+.logo__row { display: inline-flex; align-items: flex-start; gap: 0.15rem; }
 .logo__name {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
+  font-size: 2.6rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
 }
+.logo__leaf { width: 34px; height: 34px; margin-top: -2px; }
 .logo__sub {
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.42em;
-  margin-top: 0.2rem;
-  border-top: 1px solid currentColor;
-  border-bottom: 1px solid currentColor;
-  padding: 0.15rem 0;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.55em;
+  margin-top: 0.35rem;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  padding: 0.2rem 0 0.2rem 0.55em;
+  text-indent: 0;
 }
 
 /* ---------- Buttons ---------- */
@@ -75,55 +79,205 @@ section { padding: 4rem 1.25rem; }
   font-size: 1.05rem;
   font-family: var(--font-body);
 }
-/* Flyer pattern: dark text on lime green (like the FREE ESTIMATES badge) */
 .btn--primary   { background: var(--green-bright); color: var(--green-dark); }
 .btn--secondary { background: transparent; color: var(--white); border: 2px solid var(--white); }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (flyer composition) ---------- */
 .hero {
   background:
-    radial-gradient(ellipse at 20% -10%, rgba(132, 178, 8, 0.22), transparent 55%),
-    var(--green-dark);
+    radial-gradient(ellipse at 50% -20%, rgba(132, 178, 8, 0.25), transparent 60%),
+    linear-gradient(180deg, var(--green-deep), var(--green-dark) 70%);
   color: var(--white);
-  padding: 1.25rem 1.25rem 4.5rem;
+  padding: 1.75rem 0 0;
+  overflow: hidden;
 }
-.hero__content { max-width: 760px; margin: 3.25rem auto 0; text-align: center; }
-.hero__h1 { font-size: clamp(2.6rem, 9vw, 5rem); }
-.hero__h1-accent { color: var(--green-bright); display: block; }
-.hero__sub { margin: 1.1rem auto 1.75rem; font-size: 1.1rem; opacity: 0.92; max-width: 560px; }
+.hero__brand { text-align: center; }
+
+.hero__stage {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3.5rem;
+  text-align: center;
+}
+.hero__content { position: relative; z-index: 2; max-width: 620px; margin: 0 auto; }
+
+/* Flyer photo crops */
+.hero__truck, .hero__worker {
+  display: none;   /* mobile: shown as strip below via media query */
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
+/* Brush-slash headline block (flyer's black slash) */
+.hero__h1 { margin-top: 0.5rem; }
+.hero__slash {
+  display: inline-block;
+  background: var(--ink);
+  padding: 1.1rem 1.8rem 1.3rem;
+  transform: skewX(-6deg) rotate(-1.5deg);
+  clip-path: polygon(1% 8%, 99% 0%, 100% 92%, 2% 100%);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.hero__take, .hero__yard { display: block; transform: skewX(6deg); }
+.hero__take {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 9vw, 4.6rem);
+  color: var(--white);
+  font-style: italic;
+  line-height: 1;
+}
+.hero__yard {
+  font-family: var(--font-brush);
+  font-size: clamp(2.4rem, 8.5vw, 4.4rem);
+  color: var(--green-bright);
+  line-height: 1.05;
+  margin-top: 0.1rem;
+}
+.hero__from {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(0.95rem, 3vw, 1.3rem);
+  letter-spacing: 0.06em;
+  margin-top: 1rem;
+  color: var(--white);
+}
+.hero__sub { margin: 1.1rem auto 1.6rem; font-size: 1.05rem; opacity: 0.92; max-width: 520px; }
 .hero__ctas { display: flex; flex-direction: column; gap: 0.75rem; align-items: center; }
 .hero__text-link { margin-top: 0.9rem; font-size: 0.95rem; opacity: 0.85; }
 .hero__text-link a { color: var(--green-bright); font-weight: 700; }
-.hero__trust { margin-top: 1.1rem; font-size: 0.9rem; opacity: 0.8; }
+.hero__trust { margin-top: 1rem; font-size: 0.9rem; opacity: 0.8; }
 
-/* ---------- Services ---------- */
-.services { text-align: center; max-width: 1100px; margin: 0 auto; }
-.services h2 { font-size: 2.1rem; margin-bottom: 2rem; color: var(--green-dark); }
-.services__grid { display: grid; gap: 1.25rem; }
-.card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  box-shadow: 0 2px 12px rgba(13, 42, 7, 0.08);
+/* Mobile: photos as a strip below the CTAs */
+@media (max-width: 899px) {
+  .hero__truck, .hero__worker {
+    display: inline-block;
+    width: 44%;
+    max-width: 220px;
+    vertical-align: bottom;
+    margin: 2rem 0.4rem 0;
+  }
 }
-.card__icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1rem;
+
+/* Desktop: flyer layout — truck left, worker right, text center */
+@media (min-width: 900px) {
+  .hero__stage { padding-bottom: 4.5rem; }
+  .hero__truck, .hero__worker { display: block; position: absolute; z-index: 1; }
+  .hero__truck  { left: 0;  bottom: 2.5rem; width: 300px; rotate: -2deg; }
+  .hero__worker { right: 0; top: 0.5rem;    width: 230px; rotate: 2deg; }
+}
+@media (min-width: 1100px) {
+  .hero__truck  { width: 350px; }
+  .hero__worker { width: 260px; }
+}
+
+/* ---------- Services (flyer strip: icon left, text right, lime dividers) ---------- */
+.services { background: var(--white); }
+.services__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.75rem;
+}
+.service {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+  padding: 0 0.5rem;
+}
+.service__icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: var(--green-dark);
-  color: var(--green-bright);
+  color: var(--white);
   display: grid;
   place-items: center;
+  border: 3px solid var(--green-bright);
 }
-.card__icon svg { width: 34px; height: 34px; }
-.card h3 { margin-bottom: 0.5rem; font-size: 1.3rem; color: var(--green-dark); }
+.service__icon svg { width: 32px; height: 32px; }
+.service__text h3 { font-size: 1.15rem; color: var(--green-dark); margin-bottom: 0.25rem; }
+.service__text p { font-size: 0.95rem; }
 
-/* ---------- How it works ---------- */
-.how {
-  background: var(--white);
+@media (min-width: 768px) {
+  .services__grid { grid-template-columns: repeat(3, 1fr); gap: 0; }
+  .service { padding: 0 1.5rem; }
+  .service + .service { border-left: 2px solid var(--green-bright); }
+}
+
+/* ---------- Contact band (flyer black bar + badge) ---------- */
+.contact-band { background: var(--ink); color: var(--white); padding: 2rem 1.25rem; }
+.contact-band__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.phone { display: inline-flex; align-items: center; gap: 0.8rem; text-decoration: none; color: var(--white); }
+.phone__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--green-bright);
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.phone__icon svg { width: 24px; height: 24px; }
+.phone__text { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+.phone__label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.12em; opacity: 0.85; }
+.phone__number { font-family: var(--font-display); font-size: 1.9rem; }
+.contact-band__divider { display: none; width: 3px; height: 56px; background: var(--green-bright); }
+
+.badge {
+  position: relative;
+  background: var(--green-bright);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 0.7rem 1.6rem 0.8rem;
+  border-radius: 10px;
+  rotate: -3deg;
+  text-align: center;
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(132,178,8,0.35);
+}
+.badge__free { font-family: var(--font-display); font-style: italic; font-size: 2rem; }
+.badge__est  { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; letter-spacing: 0.08em; }
+.badge__leaf { position: absolute; right: 6px; bottom: 4px; width: 18px; height: 18px; opacity: 0.85; }
+
+@media (min-width: 900px) {
+  .contact-band__inner { flex-direction: row; justify-content: center; gap: 2.5rem; }
+  .contact-band__divider { display: block; }
+}
+
+/* ---------- Grass strip (flyer bottom band) ---------- */
+.grass-strip {
+  background: url('assets/photos/grass.jpg') repeat-x center / auto 100%;
+  padding: 0.85rem 1rem;
   text-align: center;
 }
+.grass-strip p {
+  color: var(--white);
+  font-weight: 800;
+  font-size: clamp(0.72rem, 2.4vw, 1rem);
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grass-strip span { color: var(--green-bright); }
+
+/* ---------- How it works ---------- */
+.how { background: var(--off-white); text-align: center; }
 .how h2 { font-size: 2.1rem; margin-bottom: 2rem; color: var(--green-dark); }
 .how__steps {
   list-style: none;
@@ -145,6 +299,10 @@ section { padding: 4rem 1.25rem; }
   margin-bottom: 0.6rem;
 }
 .how__step h3 { font-size: 1.2rem; color: var(--green-dark); }
+
+@media (min-width: 768px) {
+  .how__steps { grid-template-columns: repeat(3, 1fr); }
+}
 
 /* ---------- Quote form ---------- */
 .quote { text-align: center; max-width: 640px; margin: 0 auto; }
@@ -172,6 +330,9 @@ section { padding: 4rem 1.25rem; }
   padding: 3rem 1.25rem 5rem;
 }
 .logo--footer { margin-bottom: 1.25rem; }
+.logo--footer .logo__name { font-size: 1.8rem; }
+.logo--footer .logo__leaf { width: 24px; height: 24px; }
+.logo--footer .logo__sub { font-size: 0.6rem; }
 .footer p { margin: 0.4rem 0; font-size: 0.95rem; }
 .footer a { color: var(--green-bright); text-decoration: none; font-weight: 700; }
 
@@ -193,11 +354,7 @@ section { padding: 4rem 1.25rem; }
 }
 .call-bar.is-visible { transform: translateY(0); }
 
-/* ---------- Desktop ---------- */
 @media (min-width: 768px) {
-  .hero__ctas { flex-direction: row; justify-content: center; }
-  .services__grid { grid-template-columns: repeat(3, 1fr); }
-  .how__steps { grid-template-columns: repeat(3, 1fr); }
   .call-bar { display: none; }
   .footer { padding-bottom: 3rem; }
 }
