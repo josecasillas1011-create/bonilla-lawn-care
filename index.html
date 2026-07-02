@@ -16,7 +16,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700;800&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -33,77 +33,91 @@
   }
   </script>
 </head>
-<body>
+<body id="top">
 
-  <!-- ============ HERO (flyer composition) ============ -->
-  <header class="hero" id="top">
+  <!-- ============ STICKY NAV ============ -->
+  <nav class="nav">
+    <a href="#top" class="nav__brand" aria-label="Bonilla Lawn Care">
+      <svg class="nav__leaf" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 36 C10 28 8 16 14 8 C22 12 26 22 22 34 Z" fill="var(--lime)"/>
+        <path d="M22 30 C20 18 26 8 36 4 C38 14 34 26 24 32 Z" fill="var(--green-leaf)"/>
+      </svg>
+      <span class="nav__wordmark">Bonilla <span>Lawn Care</span></span>
+    </a>
 
-    <!-- Centered wordmark, flyer-style -->
-    <div class="hero__brand" data-animate="hero">
-      <a href="#top" class="logo" aria-label="Bonilla Lawn Care">
-        <span class="logo__row">
-          <span class="logo__name">BONILLA</span>
-          <svg class="logo__leaf" viewBox="0 0 40 40" aria-hidden="true">
-            <path d="M20 36 C10 28 8 16 14 8 C22 12 26 22 22 34 Z" fill="var(--green-bright)"/>
-            <path d="M22 30 C20 18 26 8 36 4 C38 14 34 26 24 32 Z" fill="var(--green-leaf)"/>
-          </svg>
-        </span>
-        <span class="logo__sub">LAWN CARE</span>
+    <div class="nav__links">
+      <a href="#services">Services</a>
+      <a href="#why-us">Why Us</a>
+      <a href="tel:+15627563592" class="nav__phone">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="currentColor"/></svg>
+        (562) 756-3592
       </a>
+      <a href="#quote" class="btn btn--lime btn--sm">Free Estimate</a>
     </div>
 
-    <div class="hero__stage">
-      <img src="assets/photos/signs.jpg" alt="Corner of Wabash St and Arrowhead Ave, San Bernardino" class="hero__signs" data-animate="hero" />
-      <img src="assets/photos/truck.jpg" alt="Bonilla Lawn Care work truck" class="hero__truck" data-animate="hero" />
+    <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg class="nav__icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="nav__icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </nav>
 
-      <div class="hero__content">
-        <h1 class="hero__h1" data-animate="hero">
-          <span class="hero__slash">
-            <span class="hero__take">TAKE BACK</span>
-            <span class="hero__yard">Your Yard</span>
-          </span>
-          <span class="hero__from">FROM WEEDS &amp; OVERGROWN BUSHES</span>
-        </h1>
-        <p class="hero__sub" data-animate="hero">Professional weed control, bush trimming &amp; monthly maintenance in San Bernardino, CA.</p>
-        <div class="hero__ctas" data-animate="hero">
-          <a class="btn btn--primary" href="tel:+15627563592">Call or Text (562) 756-3592</a>
-          <a class="btn btn--secondary" href="#quote">Get a Free Estimate</a>
-        </div>
-        <p class="hero__text-link" data-animate="hero">Prefer to text? <a href="sms:+15627563592">Send us a message</a></p>
-        <p class="hero__trust" data-animate="hero">Free estimates • Fast response</p>
+  <!-- Mobile menu -->
+  <div class="nav__menu" id="nav-menu" hidden>
+    <a href="#services">Services</a>
+    <a href="#why-us">Why Us</a>
+    <a href="tel:+15627563592">📞 (562) 756-3592</a>
+    <a href="#quote" class="btn btn--lime">Free Estimate</a>
+  </div>
+
+  <!-- ============ HERO (split layout) ============ -->
+  <header class="hero">
+    <div class="hero__copy">
+      <p class="kicker kicker--lime" data-animate="hero">Professional Lawn Care · Weed Control · Monthly Maintenance</p>
+      <h1 class="hero__h1" data-animate="hero">Take Back<br /><span>Your Yard</span></h1>
+      <p class="hero__tag" data-animate="hero">from weeds &amp; overgrown bushes</p>
+      <div class="hero__ctas" data-animate="hero">
+        <a class="btn btn--lime" href="tel:+15627563592">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="currentColor"/></svg>
+          Call or Text Now
+        </a>
+        <a class="btn btn--outline-white" href="#quote">Get a Free Estimate</a>
       </div>
-
-      <img src="assets/photos/worker.jpg" alt="Bonilla Lawn Care crew member trimming a lawn" class="hero__worker" data-animate="hero" />
+      <p class="hero__text-link" data-animate="hero">Prefer to text? <a href="sms:+15627563592">Send us a message</a></p>
+      <p class="hero__trust" data-animate="hero">Free estimates • Fast response</p>
     </div>
-    <div class="hero__lawn" aria-hidden="true"></div>
+
+    <div class="hero__media" data-animate="hero">
+      <img src="assets/photos/hero.jpg" alt="Bonilla Lawn Care crew member trimming a lawn with the work truck at Wabash St and Arrowhead Ave" />
+      <div class="hero__media-fade" aria-hidden="true"></div>
+    </div>
   </header>
 
-  <!-- ============ SERVICES (flyer strip: icon left, text right, dividers) ============ -->
-  <section class="services">
-    <div class="services__grid">
-      <div class="service" data-animate="fade-up">
-        <div class="service__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><path d="M24 42 C20 34 12 30 8 30 C10 24 18 22 22 26 C20 18 14 14 10 14 C16 8 26 12 26 20 C28 12 36 10 40 12 C38 20 30 24 26 26 C32 24 38 28 40 32 C34 34 28 36 24 42 Z" fill="currentColor"/></svg>
-        </div>
-        <div class="service__text">
+  <!-- ============ SERVICES ============ -->
+  <section class="services" id="services">
+    <div class="services__inner">
+      <div class="section-head">
+        <p class="kicker kicker--green">What We Do</p>
+        <h2>Our Services</h2>
+      </div>
+      <div class="services__grid">
+        <div class="card" data-animate="fade-up">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 42 C20 34 12 30 8 30 C10 24 18 22 22 26 C20 18 14 14 10 14 C16 8 26 12 26 20 C28 12 36 10 40 12 C38 20 30 24 26 26 C32 24 38 28 40 32 C34 34 28 36 24 42 Z" fill="currentColor"/></svg>
+          </div>
           <h3>Weed Control</h3>
           <p>Eliminate weeds and help prevent future growth.</p>
         </div>
-      </div>
-      <div class="service" data-animate="fade-up">
-        <div class="service__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><path d="M10 6 L24 26 L21 30 Z M38 6 L24 26 L27 30 Z" fill="currentColor"/><circle cx="19" cy="34" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="29" cy="34" r="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>
-        </div>
-        <div class="service__text">
+        <div class="card" data-animate="fade-up">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M10 6 L24 26 L21 30 Z M38 6 L24 26 L27 30 Z" fill="currentColor"/><circle cx="19" cy="34" r="5" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="29" cy="34" r="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+          </div>
           <h3>Bush Trimming</h3>
           <p>Keep shrubs and hedges neat, healthy &amp; shaped.</p>
         </div>
-      </div>
-      <div class="service" data-animate="fade-up">
-        <div class="service__icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><line x1="8" y1="19" x2="40" y2="19" stroke="currentColor" stroke-width="3"/><line x1="16" y1="6" x2="16" y2="13" stroke="currentColor" stroke-width="3"/><line x1="32" y1="6" x2="32" y2="13" stroke="currentColor" stroke-width="3"/><rect x="14" y="24" width="6" height="5" fill="currentColor"/><rect x="24" y="24" width="6" height="5" fill="currentColor"/><rect x="14" y="32" width="6" height="5" fill="currentColor"/></svg>
-        </div>
-        <div class="service__text">
+        <div class="card" data-animate="fade-up">
+          <div class="card__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="8" y="10" width="32" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><line x1="8" y1="19" x2="40" y2="19" stroke="currentColor" stroke-width="3"/><line x1="16" y1="6" x2="16" y2="13" stroke="currentColor" stroke-width="3"/><line x1="32" y1="6" x2="32" y2="13" stroke="currentColor" stroke-width="3"/><rect x="14" y="24" width="6" height="5" fill="currentColor"/><rect x="24" y="24" width="6" height="5" fill="currentColor"/><rect x="14" y="32" width="6" height="5" fill="currentColor"/></svg>
+          </div>
           <h3>Monthly Maintenance</h3>
           <p>Reliable scheduled service to keep your property looking its best year-round.</p>
         </div>
@@ -111,43 +125,35 @@
     </div>
   </section>
 
-  <!-- ============ CONTACT BAND (flyer black bar + FREE ESTIMATES badge) ============ -->
-  <section class="contact-band" aria-label="Contact phone numbers">
-    <div class="contact-band__inner">
-      <a href="tel:+15627563592" class="phone" data-animate="fade-up">
-        <span class="phone__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="currentColor"/></svg>
-        </span>
-        <span class="phone__text">
-          <span class="phone__label">CALL OR TEXT</span>
-          <span class="phone__number">(562) 756-3592</span>
-        </span>
-      </a>
-      <div class="contact-band__divider" aria-hidden="true"></div>
-      <a href="tel:+19092780082" class="phone" data-animate="fade-up">
-        <span class="phone__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="currentColor"/></svg>
-        </span>
-        <span class="phone__text">
-          <span class="phone__label">OFFICE</span>
-          <span class="phone__number">(909) 278-0082</span>
-        </span>
-      </a>
-      <a href="#quote" class="badge" data-animate="fade-up">
-        <span class="badge__free">FREE</span>
-        <span class="badge__est">ESTIMATES</span>
-        <svg class="badge__leaf" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M20 36 C10 28 8 16 14 8 C22 12 26 22 22 34 Z" fill="#0D2A07"/>
-          <path d="M22 30 C20 18 26 8 36 4 C38 14 34 26 24 32 Z" fill="#0D2A07" opacity="0.7"/>
-        </svg>
-      </a>
+  <!-- ============ WHY US (dark) ============ -->
+  <section class="why" id="why-us">
+    <div class="why__inner">
+      <div class="why__copy" data-animate="fade-up">
+        <p class="kicker kicker--lime">Why Bonilla</p>
+        <h2>Real care,<br />real results</h2>
+        <p class="why__para">We treat your yard like it's our own. Every visit is done with attention to detail, reliable timing, and a commitment to keeping things growing well — not just looking good for a day.</p>
+        <a href="#quote" class="btn btn--lime">Get Your Free Estimate</a>
+      </div>
+      <ul class="why__list" data-animate="fade-up">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Free estimates — no commitment required</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Locally owned and operated</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Flexible scheduling to fit your calendar</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12.5l2.5 2.5L16 9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Fast response — call, text, or use the form</span>
+        </li>
+      </ul>
     </div>
   </section>
-
-  <!-- ============ GRASS STRIP (flyer bottom band) ============ -->
-  <div class="grass-strip" aria-hidden="true">
-    <p>PROFESSIONAL WEED CONTROL <span>•</span> BUSH TRIMMING <span>•</span> MONTHLY MAINTENANCE</p>
-  </div>
 
   <!-- ============ BEFORE / AFTER GALLERY (hidden until real photos arrive) ============ -->
   <section class="gallery" hidden>
@@ -159,7 +165,10 @@
 
   <!-- ============ HOW IT WORKS ============ -->
   <section class="how">
-    <h2>How It Works</h2>
+    <div class="section-head">
+      <p class="kicker kicker--green">Simple Process</p>
+      <h2>How It Works</h2>
+    </div>
     <ol class="how__steps">
       <li class="how__step" data-animate="fade-up">
         <span class="how__num">1</span>
@@ -177,6 +186,25 @@
         <p>One-time cleanup or a monthly schedule. Your call.</p>
       </li>
     </ol>
+  </section>
+
+  <!-- ============ LIME CTA BAND ============ -->
+  <section class="cta-band" aria-label="Contact phone numbers">
+    <div class="cta-band__inner">
+      <p class="kicker kicker--dark" data-animate="fade-up">No Obligation</p>
+      <h2 data-animate="fade-up">Get Your Free Estimate Today</h2>
+      <p class="cta-band__sub" data-animate="fade-up">Call, text, or fill out the form below. We'll walk your yard and give you a straight answer — no pressure, no surprises.</p>
+      <div class="cta-band__buttons" data-animate="fade-up">
+        <a href="tel:+15627563592" class="btn btn--forest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="currentColor"/></svg>
+          <span><span class="btn__label">Call or Text</span>(562) 756-3592</span>
+        </a>
+        <a href="tel:+19092780082" class="btn btn--outline-forest">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z" fill="currentColor"/></svg>
+          <span><span class="btn__label">Office</span>(909) 278-0082</span>
+        </a>
+      </div>
+    </div>
   </section>
 
   <!-- ============ QUOTE FORM (Netlify Forms) ============ -->
@@ -199,26 +227,24 @@
         <option>Other</option>
       </select>
       <textarea name="notes" placeholder="Anything we should know? (optional)" aria-label="Notes"></textarea>
-      <button type="submit" class="btn btn--primary">Request My Free Estimate</button>
+      <button type="submit" class="btn btn--lime">Request My Free Estimate</button>
     </form>
     <div id="form-success" hidden>✅ Got it — Bonilla will reach out within 24 hours.</div>
   </section>
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <a href="#top" class="logo logo--footer" aria-label="Bonilla Lawn Care">
-      <span class="logo__row">
-        <span class="logo__name">BONILLA</span>
-        <svg class="logo__leaf" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M20 36 C10 28 8 16 14 8 C22 12 26 22 22 34 Z" fill="var(--green-bright)"/>
-          <path d="M22 30 C20 18 26 8 36 4 C38 14 34 26 24 32 Z" fill="var(--green-leaf)"/>
-        </svg>
-      </span>
-      <span class="logo__sub">LAWN CARE</span>
+    <a href="#top" class="footer__brand" aria-label="Bonilla Lawn Care">
+      <svg class="nav__leaf" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 36 C10 28 8 16 14 8 C22 12 26 22 22 34 Z" fill="var(--lime)"/>
+        <path d="M22 30 C20 18 26 8 36 4 C38 14 34 26 24 32 Z" fill="var(--green-leaf)"/>
+      </svg>
+      <span class="nav__wordmark">Bonilla <span>Lawn Care</span></span>
     </a>
+    <p class="footer__services">Professional Weed Control · Bush Trimming · Monthly Maintenance</p>
     <p><strong>Call or Text:</strong> <a href="tel:+15627563592">(562) 756-3592</a> &nbsp;•&nbsp; <strong>Office:</strong> <a href="tel:+19092780082">(909) 278-0082</a></p>
     <p>Serving San Bernardino &amp; surrounding areas</p>
-    <p>© 2026 Bonilla Lawn Care</p>
+    <p class="footer__copy">© 2026 Bonilla Lawn Care. All rights reserved.</p>
   </footer>
 
   <!-- ============ STICKY MOBILE CALL BAR ============ -->

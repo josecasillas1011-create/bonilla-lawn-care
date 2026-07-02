@@ -33,6 +33,23 @@ if (window.gsap && !reducedMotion) {
   });
 }
 
+// ── MOBILE NAV TOGGLE ────────────────────────────────────────
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    const open = navMenu.hidden;
+    navMenu.hidden = !open;
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  navMenu.querySelectorAll('a').forEach((link) =>
+    link.addEventListener('click', () => {
+      navMenu.hidden = true;
+      navToggle.setAttribute('aria-expanded', 'false');
+    })
+  );
+}
+
 // ── STICKY MOBILE CALL BAR (appears after scrolling past hero) ─
 const callBar = document.getElementById('call-bar');
 const hero = document.querySelector('.hero');
